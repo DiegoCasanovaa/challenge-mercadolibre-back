@@ -16,7 +16,6 @@ const getArticlesByFilter = (req, res) =>{
         const articlesToSend = allArticleMapper(response.data.results, filters )
         res.header("Access-Control-Allow-Origin", "*");
         res.status(200).json(articlesToSend);
-        res.status(400).json('No se encontraron resultados en la busqueda')
 
     })
 
