@@ -1,7 +1,7 @@
 const { Articles } = require("../models/article")
 
 const allArticleMapper = (allArticle, filters)=>{ 
-    const categories = filters.map( (filter,idx) => {
+    const categories = filters && filters.map( (filter,idx) => {
 
         const categoriesToAdd = filter.path_from_root.map( path => path.name )
 
@@ -20,7 +20,8 @@ const allArticleMapper = (allArticle, filters)=>{
             },
             picture: article.thumbnail,
             condition: article.condition,
-            free_shipping: article.shipping.free_shipping
+            free_shipping: article.shipping.free_shipping,
+            address: article.address.state_name
         }
     })
 
@@ -46,7 +47,7 @@ const articleMapper = (article, description)=>{
         amount: Number(article.price),
         decimals: Number(decimal)
         },
-        picture: article.pictures.url,
+        picture: article.pictures[0].url,
         condition: article.condition,
         free_shipping: article.shipping.free_shipping,
         sold_quantity: Number(article.sold_quantity),
