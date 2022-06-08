@@ -49,7 +49,7 @@ const articleMapper = (article, description)=>{
         picture: article.pictures.url,
         condition: article.condition,
         free_shipping: article.shipping.free_shipping,
-        sold_quantity: article.sold_quantity,
+        sold_quantity: Number(article.sold_quantity),
         description: description.plain_text
     }
 
