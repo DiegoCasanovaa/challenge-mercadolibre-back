@@ -10,7 +10,7 @@ const getArticlesByFilter = (req, res) =>{
 
     const query = req.query.q
     const limit = req.query.limit
-    axios.get(`${API}/search?q=${query}&limit=${limit}`)
+    axios.get(`${API}/sites/MLA/search?q=${query}&limit=${limit}`)
         .then( response => { 
         const articlesToSend = allArticleMapper(response.data.results, response.data.filters[0].values)
         res.header("Access-Control-Allow-Origin", "*");
